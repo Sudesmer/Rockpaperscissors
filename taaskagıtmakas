@@ -1,0 +1,65 @@
+package taskagıtmakas;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class taskagıtmakas {
+  public static void main(String[] args) {  
+    
+      try (Scanner scanner = new Scanner(System.in)) {
+          while (true) {
+              String[] rps = {"t", "k", "m"};
+              String computerMove = rps[new Random().nextInt(rps.length)];
+              
+              String playerMove;
+              
+              while(true) {
+                  System.out.println("Lütfen hamlenizi girin (t, k, ya da  m)");
+                  playerMove = scanner.nextLine();
+                  if (playerMove.equals("t") || playerMove.equals("k") || playerMove.equals("m")) {
+                      break;
+                  }
+                  System.out.println(playerMove + " Geçerli bir hareket değil ");
+              }
+              
+              System.out.println("Bilgisayar hamlesini yaptı: " + computerMove);
+              
+              if (playerMove.equals(computerMove)) {
+                  System.out.println("Oyun berabere!");
+              }
+              else if (playerMove.equals("t")) {
+                  if (computerMove.equals("k")) {
+                      System.out.println("Üzgünüm kaybettin!");
+                      
+                  } else if (computerMove.equals("m")) {
+                      System.out.println("Tebrikler Kazandın!");
+                  }
+              }
+              
+              else if (playerMove.equals("k")) {
+                  if (computerMove.equals("t")) {
+                      System.out.println("Tebrikler kazandın!");
+                      
+                  } else if (computerMove.equals("m")) {
+                      System.out.println("Üzgünüm kaybettin!");
+                  }
+              }
+              
+              else if (playerMove.equals("m")) {
+                  if (computerMove.equals("k")) {
+                      System.out.println("Tebrikler kazandın!");
+                      
+                  } else if (computerMove.equals("t")) {
+                      System.out.println("Üzgünüm kaybettin!");
+                  }
+              }
+              
+              System.out.println("Tekrar oynamak ister misin? (e/h)");
+              String playAgain = scanner.nextLine();
+              
+              if (!playAgain.equals("e")) {
+                  break;
+              }
+          } }
+  }
+}
